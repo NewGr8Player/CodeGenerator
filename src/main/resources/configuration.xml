@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<configuration>
+    <classpath>
+        <entry>lib/ojdbc14.jar</entry>
+        <entry>lib/sqljdbc4.jar</entry>
+        <entry>lib/mysql-connector-java-5.1.36-bin.jar</entry>
+        <entry>lib/postgresql-8.2-505.jdbc2.jar</entry>
+    </classpath>
+    <connections>
+        <database name="Test">
+            <driverClass>com.mysql.jdbc.Driver</driverClass>
+            <url>jdbc:mysql://127.0.0.1:3306/xm_butcher</url>
+            <username>root</username>
+            <password>root</password>
+            <schema/>
+        </database>
+    </connections>
+    <targetProject>E:\Temp\xmButcher</targetProject>
+    <basePackage>com.sxkj.xmButcher</basePackage>
+    <moduleName>butcherMonth</moduleName>
+    <author>FengZeming</author>
+    <templates>
+        <template engine="freemarker" id="Bean" name="Bean" selected="true">
+            <templateFile>bean.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\${moduleName}\bean\</targetPath>
+            <targetFileName>${table.className}.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="Dao" name="Dao" selected="true">
+            <templateFile>Dao.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\${moduleName}\dao\</targetPath>
+            <targetFileName>${table.className}Dao.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="DaoImpl" name="DaoImpl" selected="true">
+            <templateFile>DaoImpl.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\${moduleName}\dao\</targetPath>
+            <targetFileName>${table.className}DaoImpl.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="Service" name="Service" selected="true">
+            <templateFile>Service.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\${moduleName}\service\</targetPath>
+            <targetFileName>${table.className}Service.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="ServiceImpl" name="ServiceImpl" selected="true">
+            <templateFile>ServiceImpl.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\${moduleName}\service\</targetPath>
+            <targetFileName>${table.className}ServiceImpl.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="Action" name="Action" selected="true">
+            <templateFile>Action.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\${moduleName}\action\</targetPath>
+            <targetFileName>${table.className}Action.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="AjaxAction" name="AjaxAction" selected="true">
+            <templateFile>AjaxAction.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\java\${basePackage}\ajax\action\</targetPath>
+            <targetFileName>Ajax${table.className}Action.java</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="hbm" name="hbm" selected="true">
+            <templateFile>Bean.hbm.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\resources\hbm\</targetPath>
+            <targetFileName>${table.className}.hbm.xml</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="StrutsXML" name="StrutsXML" selected="true">
+            <templateFile>Bean-Struts.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\resources\</targetPath>
+            <targetFileName>${moduleName}-struts.xml</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="Context" name="Context" selected="true">
+            <templateFile>Context.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\WEB-INF\</targetPath>
+            <targetFileName>${moduleName}Context.xml</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="AddJsp" name="AddJsp" selected="true">
+            <templateFile>\pages\Add.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\WEB-INF\page\${moduleName}\</targetPath>
+            <targetFileName>${moduleName}Add.jsp</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="EditJsp" name="EditJsp" selected="true">
+            <templateFile>\pages\Edit.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\WEB-INF\page\${moduleName}\</targetPath>
+            <targetFileName>${moduleName}Edit.jsp</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="ViewJsp" name="ViewJsp" selected="true">
+            <templateFile>\pages\View.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\WEB-INF\page\${moduleName}\</targetPath>
+            <targetFileName>${moduleName}View.jsp</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="ListJsp" name="ListJsp" selected="true">
+            <templateFile>\pages\List.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\WEB-INF\page\${moduleName}\</targetPath>
+            <targetFileName>${moduleName}List.jsp</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="GridJsp" name="GridJsp" selected="true">
+            <templateFile>\pages\Grid.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\WEB-INF\page\${moduleName}\</targetPath>
+            <targetFileName>${moduleName}Grid.jsp</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+        <template engine="freemarker" id="Javascript" name="Javascript" selected="true">
+            <templateFile>JavaScript.ftl</templateFile>
+            <targetPath>${targetProject}\src\main\webapp\script\</targetPath>
+            <targetFileName>${moduleName}.js</targetFileName>
+            <encoding>UTF-8</encoding>
+        </template>
+    </templates>
+</configuration>
