@@ -12,3 +12,10 @@ Java Application方式运行即可。
 ## :trollface:备注
 目前代码乱成一坨:poop: :hankey: :shit: 虽然可用
 The code is chaos.[:sleepy:]
+
+***三坨翔代码如下***
+```
+:poop:
+:hankey:
+:shit:
+```
