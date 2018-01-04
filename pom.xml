@@ -6,7 +6,7 @@
     <groupId>com.xavier</groupId>
     <artifactId>CodeGenerator</artifactId>
     <packaging>jar</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0.M1</version>
     <name>CodeGenerator</name>
     <url>http://maven.apache.org</url>
     <properties>
@@ -14,8 +14,12 @@
         <velocity.version>1.7</velocity.version>
         <slf4j.version>1.7.7</slf4j.version>
         <logback.version>1.2.3</logback.version>
-        <junit.version>3.8.1</junit.version>
         <java.version>1.8</java.version>
+        <junit.version>3.8.1</junit.version>
+        <!-- 文件编码 -->
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <dependencies>
         <!-- Freemarker -->
@@ -60,6 +64,7 @@
         </dependency>
     </dependencies>
     <build>
+        <finalName>${project.name}.${project.version}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -68,6 +73,7 @@
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
+                    <encoding>${maven.compiler.encoding}</encoding>
                 </configuration>
             </plugin>
         </plugins>
