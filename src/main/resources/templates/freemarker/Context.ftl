@@ -14,5 +14,5 @@
 	<bean id="ajax${table.className}Action" class="${basePackage}.ajax.action.Ajax${table.className}Action" scope="prototype">
 		<property name="${moduleName}Service" ref="${moduleName}Service" />
 	</bean>
-	<!-- ${table.className}_End -->
+	<!-- ${table.className}_END -->
 </beans>

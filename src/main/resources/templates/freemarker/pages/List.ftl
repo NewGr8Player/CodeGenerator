@@ -32,9 +32,9 @@
 						</td>
 						</#list>
 						<td rowspan="<s:property value='#size' />">
-							<span class="img_view hand" title="查看" onclick="${moduleName}View('<s:property value="id"/>');"	></span>
-							<span class="img_edit hand" title="修改" onclick="${moduleName}Edit1('<s:property value="id"/>');"	></span>
-							<span class="img_delete hand" title="删除" onclick="${moduleName}Delete('<s:property value="id"/>');"	></span>
+							<span class="img_view hand" title="查看" onclick="${moduleName}View('<s:property value="id"/>');"></span>
+							<span class="img_edit hand" title="修改" onclick="${moduleName}Edit1('<s:property value="id"/>');"></span>
+							<span class="img_delete hand" title="删除" onclick="${moduleName}Delete('<s:property value="id"/>');"></span>
 						</td>
 					</tr>
 					<s:if test="leaderList.size==0">
@@ -50,9 +50,9 @@
 		<div id="scrollContent">
 			<table class="tableStyle" id="${moduleName}Table" sortMode="true">
 				<td rowspan="<s:property value='#size' />">
-					<span class="img_view hand" title="查看" onclick="${moduleName}View('<s:property value="id"/>');"	></span>
-					<span class="img_edit hand" title="修改" onclick="${moduleName}Edit('<s:property value="id"/>');"	></span>
-					<span class="img_delete hand" title="删除" onclick="${moduleName}Delete('<s:property value="id"/>');"	></span>
+					<span class="img_view hand" title="查看" onclick="${moduleName}View('<s:property value="id"/>');"></span>
+					<span class="img_edit hand" title="修改" onclick="${moduleName}Edit('<s:property value="id"/>');"></span>
+					<span class="img_delete hand" title="删除" onclick="${moduleName}Delete('<s:property value="id"/>');"></span>
 				</td>
 			</table>
 		</div>
