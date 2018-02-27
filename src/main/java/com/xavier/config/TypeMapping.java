@@ -20,7 +20,7 @@ public class TypeMapping implements Serializable {
 	private Map<Integer, String> fullTypeMap;
 
 	public TypeMapping(String classPath) {
-		this.mappginFile = getClass().getClassLoader().getResource(classPath) + MAPING_FILE;
+		this.mappginFile = classPath + MAPING_FILE;
 		typeMap = new HashMap<>();
 		fullTypeMap = new HashMap<>();
 	}

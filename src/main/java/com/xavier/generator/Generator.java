@@ -256,7 +256,7 @@ public class Generator extends JFrame {
 	}
 
 	private void initSettings() {
-		classPath = getClass().getClassLoader().getResource(".").getPath();
+		classPath = getClass().getClassLoader().getResource("./").getPath();
 		configuration = new Configuration(classPath);
 		try {
 			configuration.loadConfiguration();
@@ -269,7 +269,7 @@ public class Generator extends JFrame {
 			JOptionPane.showMessageDialog(this, e.getMessage(), "错误", JOptionPane.ERROR_MESSAGE);
 		}
 
-		typeMapping = new TypeMapping("./");
+		typeMapping = new TypeMapping(classPath);
 		try {
 			typeMapping.loadMappgin();
 		} catch (Exception e) {
