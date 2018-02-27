@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="<%=basePath%>script/${moduleName}.js?<%=date.getTime()%>"></script>
 	</head>
 	<body>
-		<div class="box2" panelTitle="查询条件" roller="false">
+		<div panelTitle="查询条件" roller="false">
 			<form action="${moduleName}!list.action?param=all" id="sForm" method="post">
 				<table class="tableStyle" id="leaderTable" sortMode="true">
 					<tr>

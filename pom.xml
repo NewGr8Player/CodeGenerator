@@ -62,8 +62,6 @@
             <groupId>org.jb2011.lnf</groupId>
             <artifactId>org.jb2011.lnf</artifactId>
             <version>1.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/src/main/resources/beautyeye_lnf.jar</systemPath>
         </dependency>
         <!-- 单元测试 -->
         <dependency>
@@ -88,37 +86,27 @@
             </plugin>
 
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>compile</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            <includeScope>system</includeScope>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
+                <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
                     <archive>
                         <manifest>
-                            <!-- 指定Main方法入口的class -->
                             <mainClass>${mainClass}</mainClass>
-                            <!-- 在jar包的MANIFEST.MF文件中生成Class-Path属性 -->
-                            <addClasspath>true</addClasspath>
                         </manifest>
                     </archive>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
 
         </plugins>

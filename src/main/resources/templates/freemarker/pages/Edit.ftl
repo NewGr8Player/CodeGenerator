@@ -8,7 +8,6 @@
 		<%@include file="/common/meta.jsp"%>
 		<script src="<%=basePath%>static/libs/js/form/validationRule.js" type="text/javascript"></script>
 		<script src="<%=basePath%>static/libs/js/form/validation.js" type="text/javascript"></script>
-		<script src="<%=basePath%>static/js/UUID.js" type="text/javascript"></script>
 		<#if (table.hasDateColumn)>
 		<script src="<%=basePath%>static/js/form/datePicker/WdatePicker.js" type="text/javascript"></script>
 		</#if>
@@ -22,29 +21,27 @@
 	</head>
 	<body>
 		<div id="scrollContent">
-			<div class="box1">
-				<s:form method="post" id="${moduleName}Form">
-				<#list table.primaryKeys as key>
-					<s:hidden name="${moduleName}.${key.javaProperty}" />
+			<s:form method="post" id="${moduleName}Form">
+			<#list table.primaryKeys as key>
+				<s:hidden name="${moduleName}.${key.javaProperty}" />
+			</#list>
+				<table class="tableStyle" formMode="true">
+				<#list table.baseColumns as column>
+					<tr>
+						<td>${column.remarks}</td>
+						<td>
+							<#if (column.isDate() )>
+								<s:textfield name="${moduleName}.${column.javaProperty}" readonly="true" cssClass="date validate[custom[date]]">
+									<s:param name="value"><s:date name="${moduleName}.${column.javaProperty}" format="yyyy-MM-dd"/></s:param>
+								</s:textfield>
+							<#else>
+								<s:textfield name="${moduleName}.${column.javaProperty}" <#if (!column.nullable)>cssClass="validate[required]"</#if> />
+							</#if>
+						</td>
+					</tr>
 				</#list>
-					<table class="tableStyle" formMode="true">
-					<#list table.baseColumns as column>
-						<tr>
-							<td>${column.remarks}</td>
-							<td>
-								<#if (column.isDate() )>
-									<s:textfield name="${moduleName}.${column.javaProperty}" readonly="true" cssClass="date validate[custom[date]]">
-										<s:param name="value"><s:date name="${moduleName}.${column.javaProperty}" format="yyyy-MM-dd"/></s:param>
-									</s:textfield>
-								<#else>
-									<s:textfield name="${moduleName}.${column.javaProperty}" <#if (!column.nullable)>cssClass="validate[required]"</#if> />
-								</#if>
-							</td>
-						</tr>
-					</#list>
-					</table>
-				</s:form>
-			</div>
+				</table>
+			</s:form>
 		</div>
 	</body>
 </html>

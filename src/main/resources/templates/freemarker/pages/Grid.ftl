@@ -17,10 +17,10 @@
 		</script>
 	</head>
 	<body>
-	<div class="box2" panelTitle="${table.remarks}管理" roller="false" showStatus="false">
+	<div panelTitle="${table.remarks}管理" roller="false" showStatus="false">
 		<form action="${moduleName}!grid.action?param=all" id="sForm" method="post">
+            <s:hidden id="currPage" name="currPage" value="1"/>
 			<s:hidden id="pageSize" name="pageSize" value="10"/>
-			<s:hidden id="currPage" name="currPage" value="1"/>
 			<table id="hideTable">
 				<tr>
 					<td>id：</td>
@@ -47,7 +47,7 @@
 	<script type="text/javascript">
 		var g_pageNo = 1;
 		var g_pageSize = 10;
-		//数据表格使用
+
 		var g;
 		function initComplete(){
 			g = $("#mainGrid").quiGrid({
@@ -82,13 +82,13 @@
 		$(function(){
 			onSelect();
 		});
+
 		function onSelect(){
 			$("#currPage").val(1);
 			var url="ajax${table.className}!grid.action";
 			var frmData = $("#sForm").serializeArray();
 			$.post(url,frmData,function(result){
 				gridData = eval('('+result.gridJson+')');
-				//刷新表格
 				g.loadData(gridData);
 				drawPage(url,gridData,frmData);
 			},"json");

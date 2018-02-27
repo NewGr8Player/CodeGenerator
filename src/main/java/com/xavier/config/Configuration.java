@@ -39,7 +39,7 @@ public class Configuration {
     private List<TemplateElement> templates;
 
     public Configuration(String classPath) {
-        this.configurationFile = getClass().getClassLoader().getResource(classPath) + CONFIGURATION_FILE;
+        this.configurationFile = classPath + CONFIGURATION_FILE;
         connectionHistory = new ArrayList<>();
         classPathEntries = new ArrayList<>();
         templates = new ArrayList<>();

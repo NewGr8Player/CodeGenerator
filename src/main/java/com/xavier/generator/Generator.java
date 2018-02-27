@@ -45,14 +45,11 @@ public class Generator extends JFrame {
 
 	private static final Logger LOGGER = LoggerFactory.getLogger(Generator.class);
 
-	private static final long serialVersionUID = -7813705897974255551L;
-
 	private static Font FONT_YAHEI = new Font("微软雅黑", Font.PLAIN, 12);
 
 	private String[] headers = {"字段名", "字段类型", "JAVA类型", "大小", "主键", "唯一", "自增", "外键",
 			"可空", "默认值", "显示", "搜索", "排序", "数据字典", "注释"};
-	private int[] headerWidth = {120, 80, 80, 50, 40, 40, 40, 40,
-			40, 50, 40, 40, 40, 100, 150};
+	private int[] headerWidth = {120, 80, 80, 50, 40, 40, 40, 40, 40, 50, 40, 40, 40, 100, 150};
 	public static final int IDX_COLUMN_JAVATYPE = 2;
 	public static final int IDX_COLUMN_NULLABLE = 8;
 	public static final int IDX_COLUMN_DISPLAY = 10;
@@ -259,14 +256,12 @@ public class Generator extends JFrame {
 	}
 
 	private void initSettings() {
-		classPath = getClass().getClassLoader().getResource("./").getPath();
-
-		configuration = new Configuration("./");
+		classPath = getClass().getClassLoader().getResource(".").getPath();
+		configuration = new Configuration(classPath);
 		try {
 			configuration.loadConfiguration();
 			if (!configuration.getClassPathEntries().isEmpty()) {
-				ClassLoader classLoader = ClassloaderUtility.getCustomClassloader(getClass().getClassLoader().getResource("./").getPath(),
-						configuration.getClassPathEntries());
+				ClassLoader classLoader = ClassloaderUtility.getCustomClassloader(classPath, configuration.getClassPathEntries());
 				ObjectFactory.addExternalClassLoader(classLoader);
 			}
 		} catch (Exception e) {
